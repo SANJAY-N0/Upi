@@ -1,39 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>UPI Payment</title>
 
 <style>
+
 body{
-font-family:Arial;
-text-align:center;
-margin-top:60px;
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
 }
 
-.btn{
-display:block;
-width:200px;
-margin:15px auto;
-padding:15px;
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+text-align:center;
+width:320px;
+}
+
+h2{
+margin-bottom:10px;
+}
+
+p{
+color:#666;
+margin-bottom:20px;
+}
+
+button{
+width:220px;
+padding:14px;
+margin:10px;
+font-size:18px;
+border:none;
+border-radius:8px;
 background:#2ecc71;
 color:white;
-font-size:18px;
-text-decoration:none;
-border-radius:8px;
+cursor:pointer;
 }
+
+button:hover{
+background:#27ae60;
+}
+
+.footer{
+margin-top:20px;
+font-size:14px;
+color:#888;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<h2>Select Payment Amount</h2>
+<div class="card">
 
-<a class="btn" href="upi://pay?pa=sanjay150724@okicici&pn=Sanjay&am=100&cu=INR">Pay ₹100</a>
+<h2>Pay via UPI</h2>
+<p>Select your payment amount</p>
 
-<a class="btn" href="upi://pay?pa=sanjay150724@okicici&pn=Sanjay&am=70&cu=INR">Pay ₹70</a>
+<button onclick="pay(100)">Pay ₹100</button>
+<br>
 
-<a class="btn" href="upi://pay?pa=sanjay150724@okicici&pn=Sanjay&am=40&cu=INR">Pay ₹40</a>
+<button onclick="pay(70)">Pay ₹70</button>
+<br>
+
+<button onclick="pay(40)">Pay ₹40</button>
+
+<div class="footer">
+UPI ID: 9894709708@naviaxis
+</div>
+
+</div>
+
+<script>
+
+function pay(amount){
+
+let upiLink = "upi://pay?pa=9894709708@naviaxis&pn=Sanjay%20N&am="+amount+"&cu=INR";
+
+window.location.href = upiLink;
+
+}
+
+</script>
 
 </body>
+
 </html>
